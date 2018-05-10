@@ -4,6 +4,8 @@
 
 [Docker Hub][this-docker] - [Git Hub][this-github]
 
+**Attention:** The Docker Hub repository is actually named *ubuntu-vnc-xfce-firefox*-**default** to avoid conflicts with the previous generation.
+
 This repository contains resources for building Docker images based on [Ubuntu][docker-ubuntu], with [Xfce][xfce] desktops, headless **VNC**/[noVNC][novnc] environments and default installation of the current [Firefox][firefox] browser.
 
 These images can be also successfully built and used on NAS devices. They
@@ -32,7 +34,7 @@ The images are regularly maintained and rebuilt. The history of notable changes 
   - `latest` based on `accetto/ubuntu-vnc-xfce:latest`
   - `rolling` based on `accetto/ubuntu-vnc-xfce:rolling`
 
-    [![version badge](https://images.microbadger.com/badges/version/accetto/ubuntu-vnc-xfce-firefox.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox "Get your own version badge on microbadger.com") [![size badge](https://images.microbadger.com/badges/image/accetto/ubuntu-vnc-xfce-firefox.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox "Get your own image badge on microbadger.com") [![version badge](https://images.microbadger.com/badges/version/accetto/ubuntu-vnc-xfce-firefox:rolling.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox:rolling "Get your own version badge on microbadger.com") [![size badge](https://images.microbadger.com/badges/image/accetto/ubuntu-vnc-xfce-firefox:rolling.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox:rolling "Get your own image badge on microbadger.com")
+    [![version badge](https://images.microbadger.com/badges/version/accetto/ubuntu-vnc-xfce-firefox-defaul.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox-default "Get your own version badge on microbadger.com") [![size badge](https://images.microbadger.com/badges/image/accetto/ubuntu-vnc-xfce-firefox-default.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox-default "Get your own image badge on microbadger.com") [![version badge](https://images.microbadger.com/badges/version/accetto/ubuntu-vnc-xfce-firefox-default:rolling.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox-default:rolling "Get your own version badge on microbadger.com") [![size badge](https://images.microbadger.com/badges/image/accetto/ubuntu-vnc-xfce-firefox-default:rolling.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox-default:rolling "Get your own image badge on microbadger.com")
 
 ### Ports
 
@@ -121,7 +123,7 @@ If you have found a problem or just have a question, please check the [Issues][t
 
 If you do not find a solution, you can file a new issue. The better you describe the problem, the bigger the chance it'll be solved soon.
 
-[this-docker]: https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-firefox/
+[this-docker]: https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-firefox-default/
 [this-github]: https://github.com/accetto/ubuntu-vnc-xfce-firefox
 
 [this-changelog]: https://github.com/accetto/ubuntu-vnc-xfce-firefox/blob/master/CHANGELOG.md
