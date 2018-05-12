@@ -2,11 +2,15 @@
 
 ## accetto/ubuntu-vnc-xfce-firefox
 
-[Docker Hub][this-docker] - [Git Hub][this-github]
+[Docker Hub][this-docker] - [Git Hub][this-github] - [Changelog][this-changelog] - [Wiki][this-wiki]
 
-**Attention:** The Docker Hub repository is actually named *ubuntu-vnc-xfce-firefox*-**default** to avoid conflicts with the previous generation.
+**Attention:** Resources for building images with configurable Firefox, previously contained in the common base repository [ubuntu-vnc-xfce][accetto-github-ubuntu-vnc-xfce], have been moved to its own GitHub repository [ubuntu-vnc-xfce-firefox-plus][accetto-github-ubuntu-vnc-xfce-firefox-plus]. Resources for building the base images are in the GitHub repository [accetto/ubuntu-vnc-xfce][accetto-github-ubuntu-vnc-xfce].
 
-This repository contains resources for building Docker images based on [Ubuntu][docker-ubuntu], with [Xfce][xfce] desktops, headless **VNC**/[noVNC][novnc] environments and default installation of the current [Firefox][firefox] browser.
+**Attention:** The Docker Hub repository is actually named [*ubuntu-vnc-xfce-firefox*-**default**][this-docker] to avoid conflicts with the previous generation image.
+
+***
+
+**This repository** contains resources for building Docker images based on [Ubuntu][docker-ubuntu], with [Xfce][xfce] desktops, headless **VNC**/[noVNC][novnc] environments and default installation of the current [Firefox][firefox] browser.
 
 These images can be also successfully built and used on NAS devices. They
 have been tested with [Container Station][container-station] from [QNAP][qnap].
@@ -24,8 +28,6 @@ The images inherit the following components from the base images
 - popular text editor [vim][vim]
 
 The images are regularly maintained and rebuilt. The history of notable changes is documented in [CHANGELOG][this-changelog].
-
-*Remark:* Resources for building images with configurable Firefox, previously contained in the common base repository [ubuntu-vnc-xfce][accetto-github-ubuntu-vnc-xfce], have been moved to the separate repository [ubuntu-vnc-xfce-firefox-plus][accetto-github-ubuntu-vnc-xfce-firefox-plus]. Resources for building base images are in the repository [accetto/ubuntu-vnc-xfce][accetto-github-ubuntu-vnc-xfce].
 
 ## Image set
 
