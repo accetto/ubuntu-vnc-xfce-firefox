@@ -1,12 +1,12 @@
 # docker build -f Dockerfile_rolling -t accetto/ubuntu-vnc-xfce-firefox:rolling .
 # docker build -f Dockerfile_rolling --build-arg BASETAG=dev -t accetto/ubuntu-vnc-xfce-firefox:dev .
-# docker build -f Dockerfile_rolling --build-arg VNC_USER=root:root -t root/ubuntu-vnc-xfce-firefox:root .
+# docker build -f Dockerfile_rolling --build-arg VNC_USER=root:root -t accetto/ubuntu-vnc-xfce-firefox:root .
 
 ARG BASETAG=rolling
 
 FROM accetto/ubuntu-vnc-xfce:${BASETAG}
 
-ENV REFRESHED_AT 2018-05-10
+ENV REFRESHED_AT 2018-05-12
 
 LABEL vendor="accetto" \
     maintainer="https://github.com/accetto" \
