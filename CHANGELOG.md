@@ -8,6 +8,11 @@
 
 ***
 
+### Version 18.05.2
+
+- Dockerfiles - build arguments and environment variables interaction redesigned
+- Default **VNC_RESOLUTION=1024x768** and it can be set also through build arguments
+
 ### Version 18.05.1
 
 - Firefox Quantum updated to version **60.0** (64-bit)
