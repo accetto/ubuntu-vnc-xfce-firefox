@@ -10,9 +10,9 @@
 
 ***
 
-**This repository** contains resources for building Docker images based on [Ubuntu][docker-ubuntu], with [Xfce][xfce] desktops, headless **VNC**/[noVNC][novnc] environments and default installation of the current [Firefox][firefox] browser.
+**This repository** contains resources for building Docker images based on [Ubuntu][docker-ubuntu], with [Xfce][xfce] desktops, headless **VNC**/[noVNC][novnc] environments and default installation of the current [Firefox][firefox] browser in its default installation.
 
-These images can be also successfully built and used on NAS devices. They
+These images can also be successfully built and used on NAS devices. They
 have been tested with [Container Station][container-station] from [QNAP][qnap].
 
 The images are perfect for fast creation of light-weight web browser containers. They can be thrown away easily and replaced quickly, improving browsing privacy. They run under a non-root user by default, improving browsing security.
@@ -24,8 +24,8 @@ The images inherit the following components from the base images
 - light-weight [Xfce][xfce] desktop environment
 - high-performance VNC server [TigerVNC][tigervnc] (TCP port **5901**)
 - [noVNC][novnc] HTML5 clients (full and lite) (TCP port **6901**)
-- light-weight graphical editor [leafpad][leafpad]
 - popular text editor [vim][vim]
+- lite but advanced graphical editor [mousepad][mousepad]
 
 The images are regularly maintained and rebuilt. The history of notable changes is documented in [CHANGELOG][this-changelog].
 
@@ -51,17 +51,17 @@ The default **VNC user** password is **headless**.
 
 The images do not create or use any external volumes by default. However, the following folders make good mounting points:
 
-- /headless/Documents/
-- /headless/Downloads/
-- /headless/Music/
-- /headless/Pictures/
-- /headless/Public/
-- /headless/Templates/
-- /headless/Videos/
+- /home/headless/Documents/
+- /home/headless/Downloads/
+- /home/headless/Music/
+- /home/headless/Pictures/
+- /home/headless/Public/
+- /home/headless/Templates/
+- /home/headless/Videos/
 
 The following mounting point is specific to Firefox:
 
-- /headless/.mozilla
+- /home/headless/.mozilla
 
 Both *named volumes* and *bind mounts* can be used. More about volumes can be found in [Docker documentation][docker-doc-managing-data].
 
@@ -75,16 +75,16 @@ The following container will listen on the host's **TCP** ports **25901** (VNC) 
 docker run -d -p 25901:5901 -p 26901:6901 accetto/ubuntu-vnc-xfce-firefox
 ```
 
-The following container wil create or re-use the local named volume **my\_Downloads** mounted as `/headless/Downloads`. The container will be accessible through the same **TCP** ports as the one above:
+The following container wil create or re-use the local named volume **my\_Downloads** mounted as `/home/headless/Downloads`. The container will be accessible through the same **TCP** ports as the one above:
 
 ```docker
-docker run -d -p 25901:5901 -p 26901:6901 -v my_Downloads:/headless/Downloads accetto/ubuntu-vnc-xfce-firefox
+docker run -d -p 25901:5901 -p 26901:6901 -v my_Downloads:/home/headless/Downloads accetto/ubuntu-vnc-xfce-firefox
 ```
 
 or using the newer syntax with **--mount** flag:
 
 ```docker
-docker run -d -p 25901:5901 -p 26901:6901 --mount source=my_Downloads,target=/headless/Downloads accetto/ubuntu-vnc-xfce-firefox
+docker run -d -p 25901:5901 -p 26901:6901 --mount source=my_Downloads,target=/home/headless/Downloads accetto/ubuntu-vnc-xfce-firefox
 ```
 
 ## Using headless containers
@@ -148,13 +148,13 @@ If you do not find a solution, you can file a new issue. The better you describe
 [docker-ubuntu]: https://hub.docker.com/_/ubuntu/
 [docker-doc-managing-data]: https://docs.docker.com/storage/
 
-[xfce]: http://www.xfce.org
-[tigervnc]: http://tigervnc.org
-[novnc]: https://github.com/kanaka/noVNC
-[leafpad]: https://en.wikipedia.org/wiki/Leafpad
-[tightvnc]: http://www.tightvnc.com
-[firefox]: https://www.mozilla.org
-[vim]: https://www.vim.org/
-
 [qnap]: https://www.qnap.com/en/
 [container-station]: https://www.qnap.com/solution/container_station/en/
+
+[firefox]: https://www.mozilla.org
+[mousepad]: https://github.com/codebrainz/mousepad
+[novnc]: https://github.com/kanaka/noVNC
+[tigervnc]: http://tigervnc.org
+[tightvnc]: http://www.tightvnc.com
+[vim]: https://www.vim.org/
+[xfce]: http://www.xfce.org

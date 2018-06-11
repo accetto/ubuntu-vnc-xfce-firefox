@@ -30,7 +30,7 @@ if [[ -n "${VNC_USER}" ]] ; then
             useradd --no-log-init --gid $UGROUP --home-dir $HOME --shell /bin/bash --password $VNC_PW $UNAME
         fi
     else
-        echo "Will not create root user $VNC_USER"
+        echo "Will not create root user \"$VNC_USER\"."
     fi
 fi
 

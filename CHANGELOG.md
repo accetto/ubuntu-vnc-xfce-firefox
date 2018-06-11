@@ -8,6 +8,17 @@
 
 ***
 
+### Version 18.06
+
+- Dockerfile redesigned
+  - multi-staged and explicit
+  - helper installation scripts mostly removed
+- Some other changes inherited from the base image [accetto/ubuntu-vnc-xfce][accetto-github-ubuntu-vnc-xfce]
+  - standard *Xfce* desktop, incl. initial panel configuration on the first start
+  - editor **leafpad** replaced by more advanced but still lite [mousepad][mousepad]
+  - **pulseaudio** and **pavucontrol** not purged any more
+- Firefox updated
+
 ### Version 18.05.2
 
 - Dockerfiles - build arguments and environment variables interaction redesigned
@@ -32,3 +43,5 @@
 
 [accetto-github-ubuntu-vnc-xfce]: https://github.com/accetto/ubuntu-vnc-xfce
 [accetto-github-ubuntu-vnc-xfce-firefox-plus]: https://github.com/accetto/ubuntu-vnc-xfce-firefox-plus
+
+[mousepad]: https://github.com/codebrainz/mousepad
