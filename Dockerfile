@@ -7,7 +7,7 @@ ARG BASETAG=latest
 
 FROM accetto/ubuntu-vnc-xfce:${BASETAG} as stage-install
 
-ENV REFRESHED_AT 2018-06-11
+ENV REFRESHED_AT 2018-10-28
 
 ### Be sure to use root user
 USER 0
@@ -24,7 +24,7 @@ ARG ARG_VNC_USER
 
 ENV VNC_USER=${ARG_VNC_USER:-headless:headless}
 
-WORKDIR $HOME
+WORKDIR ${HOME}
 SHELL ["/bin/bash", "-c"]
 
 COPY [ "./src/firefox.desktop", "./Desktop/" ]
@@ -56,4 +56,7 @@ ENV \
   VNC_RESOLUTION=${ARG_VNC_RESOLUTION:-1024x768}
 
 ### Switch to non-root user
-USER $VNC_USER
+USER ${VNC_USER}
+
+### Issue #7 (base): Mitigating problems with foreground mode
+WORKDIR ${STARTUPDIR}

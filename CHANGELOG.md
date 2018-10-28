@@ -8,6 +8,13 @@
 
 ***
 
+### Version 18.10
+
+- Fixed **Issue #7** (Problem with foreground mode) inherited from the [base image][accetto-github-ubuntu-vnc-xfce]
+  - supported startup options: `--wait` (default), `--skip`, `--debug` (also `--tail-log`) and `--help`
+  - getting help: `docker run --rm accetto/ubuntu-vnc-xfce --help`
+  - README file is extended
+
 ### Version 18.06
 
 - Dockerfile redesigned

@@ -1,6 +1,6 @@
 # Headless Ubuntu/Xfce containers with VNC/noVNC and Firefox
 
-## accetto/ubuntu-vnc-xfce-firefox
+## accetto/ubuntu-vnc-xfce-firefox-default
 
 [Docker Hub][this-docker] - [Git Hub][this-github] - [Changelog][this-changelog] - [Wiki][this-wiki]
 
@@ -12,26 +12,29 @@
 
 **This repository** contains resources for building Docker images based on [Ubuntu][docker-ubuntu], with [Xfce][xfce] desktops, headless **VNC**/[noVNC][novnc] environments and default installation of the current [Firefox][firefox] browser in its default installation.
 
-These images can also be successfully built and used on NAS devices. They
-have been tested with [Container Station][container-station] from [QNAP][qnap].
+This image can also be successfully built and used on NAS devices. It
+has been tested with [Container Station][container-station] from [QNAP][qnap].
 
-The images are perfect for fast creation of light-weight web browser containers. They can be thrown away easily and replaced quickly, improving browsing privacy. They run under a non-root user by default, improving browsing security.
+The image is perfect for fast creation of light-weight web browser containers. They can be thrown away easily and replaced quickly, improving browsing privacy. They run under a non-root user by default, improving browsing security.
 
-The images are based on the [accetto/ubuntu-vnc-xfce][accetto-docker-ubuntu-vnc-xfce] images, just adding the [Firefox][firefox] browser.
+The image is based on the [accetto/ubuntu-vnc-xfce][accetto-docker-ubuntu-vnc-xfce] image, just adding the [Firefox][firefox] browser.
 
-The images inherit the following components from the base images
+The image inherits the following components from its [base image][accetto-docker-ubuntu-vnc-xfce]:
 
 - light-weight [Xfce][xfce] desktop environment
 - high-performance VNC server [TigerVNC][tigervnc] (TCP port **5901**)
 - [noVNC][novnc] HTML5 clients (full and lite) (TCP port **6901**)
 - popular text editor [vim][vim]
 - lite but advanced graphical editor [mousepad][mousepad]
+- container start-up options
 
-The images are regularly maintained and rebuilt. The history of notable changes is documented in [CHANGELOG][this-changelog].
+Running containers in background is the primary scenario this image has been developed for. However, running in foreground can be useful in many cases. See the description below for examples of using the containers both ways.
+
+The image is regularly maintained and rebuilt. The history of notable changes is documented in [CHANGELOG][this-changelog].
 
 ## Image set
 
-- [accetto/ubuntu-vnc-xfce-firefox][this-docker]
+- [accetto/ubuntu-vnc-xfce-firefox-default][this-docker]
 
   - `latest` based on `accetto/ubuntu-vnc-xfce:latest`
   - `rolling` based on `accetto/ubuntu-vnc-xfce:rolling`
@@ -63,28 +66,80 @@ The following mounting point is specific to Firefox:
 
 - /home/headless/.mozilla
 
-Both *named volumes* and *bind mounts* can be used. More about volumes can be found in [Docker documentation][docker-doc-managing-data].
+Both *named volumes* and *bind mounts* can be used. More about volumes can be found in [Docker documentation][docker-doc] (e.g. [Manage data in Docker][docker-doc-managing-data]).
 
-## Creating containers
+## Running containers in background (detached)
 
-Created containers will run under the non-root user **headless:headless** by default.
+Created containers run under the privileged **root** user by default. However, it's the container's root, which is not the same as the root of the hosting computer (see above).
 
-The following container will listen on the host's **TCP** ports **25901** (VNC) and **26901** (noVNC):
+The following container will listen on automatically selected **TCP** ports of the host computer:
 
 ```docker
-docker run -d -p 25901:5901 -p 26901:6901 accetto/ubuntu-vnc-xfce-firefox
+docker run -d -P accetto/ubuntu-vnc-xfce-firefox-default
+```
+
+The following container will listen on the host's explicit **TCP** ports **25901** (VNC) and **26901** (noVNC):
+
+```docker
+docker run -d -p 25901:5901 -p 26901:6901 accetto/ubuntu-vnc-xfce-firefox-default
 ```
 
 The following container wil create or re-use the local named volume **my\_Downloads** mounted as `/home/headless/Downloads`. The container will be accessible through the same **TCP** ports as the one above:
 
 ```docker
-docker run -d -p 25901:5901 -p 26901:6901 -v my_Downloads:/home/headless/Downloads accetto/ubuntu-vnc-xfce-firefox
+docker run -d -P -v my_Downloads:/home/headless/Downloads accetto/ubuntu-vnc-xfce-firefox-default
 ```
 
 or using the newer syntax with **--mount** flag:
 
 ```docker
-docker run -d -p 25901:5901 -p 26901:6901 --mount source=my_Downloads,target=/home/headless/Downloads accetto/ubuntu-vnc-xfce-firefox
+docker run -d -P --mount source=my_Downloads,target=/home/headless/Downloads accetto/ubuntu-vnc-xfce-firefox-default
+```
+
+## Running containers in foreground (interactively)
+
+The image supports the following container start-up options: `--wait` (default), `--skip`, `--debug` (also `--tail-log`) and `--help`. This functionality is inherited from the [base image][accetto-docker-ubuntu-vnc-xfce].
+
+The following container will print out the help and then it'll remove itself:
+
+```docker
+docker run --rm accetto/ubuntu-vnc-xfce-firefox-default --help
+```
+
+Excerpt from the output, which describes the other options:
+
+```docker
+OPTIONS:
+-w, --wait      (default) Keeps the UI and the vnc server up until SIGINT or SIGTERM are received.
+                An optional command can be executed after the vnc starts up.
+                example: docker run -d -P accetto/ubuntu-vnc-xfce
+                example: docker run -it -P accetto/ubuntu-vnc-xfce /bin/bash
+
+-s, --skip      Skips the vnc startup and just executes the provided command.
+                example: docker run -it -P accetto/ubuntu-vnc-xfce --skip /bin/bash
+
+-d, --debug     Executes the vnc startup and tails the vnc/noVNC logs.
+                Any parameters after '--debug' are ignored. CTRL-C stops the container.
+                example: docker run -it -P accetto/ubuntu-vnc-xfce --debug
+
+-t, --tail-log  same as '--debug'
+
+-h, --help      Prints out this help.
+                example: docker run --rm accetto/ubuntu-vnc-xfce
+```
+
+It should be noticed, that the `--debug` start-up option does not show the command prompt even if the `-it` run arguments are provided. This is because the container is watching the incoming vnc/noVNC connections and prints out their logs in real time. However, it is easy to attach to the running container like in the following example.
+
+In the first terminal window on the host computer, create a new container named **foo**:
+
+```docker
+docker run --name foo accetto/ubuntu-vnc-xfce-firefox-default --debug
+```
+
+In the second terminal window on the host computer, execute the shell inside the **foo** container:
+
+```docker
+docker exec -it foo /bin/bash
 ```
 
 ## Using headless containers
@@ -146,6 +201,7 @@ If you do not find a solution, you can file a new issue. The better you describe
 [accetto-docker-ubuntu-vnc-xfce-firefox-plus]: https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-firefox-plus/
 
 [docker-ubuntu]: https://hub.docker.com/_/ubuntu/
+[docker-doc]: https://docs.docker.com/
 [docker-doc-managing-data]: https://docs.docker.com/storage/
 
 [qnap]: https://www.qnap.com/en/
