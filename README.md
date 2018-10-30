@@ -12,8 +12,9 @@
 
 **This repository** contains resources for building Docker images based on [Ubuntu][docker-ubuntu], with [Xfce][xfce] desktops, headless **VNC**/[noVNC][novnc] environments and default installation of the current [Firefox][firefox] browser in its default installation.
 
-This image can also be successfully built and used on NAS devices. It
-has been tested with [Container Station][container-station] from [QNAP][qnap].
+This image can be successfully built and used on Linux, NAS devices and Windows.
+
+It has been tested with [Docker CE][docker-ce] on [Ubuntu flavours][ubuntu-flavours], with [Container Station][container-station] on a NAS from [QNAP][qnap] and with [Docker for Windows][docker-for-windows] on Windows 10.
 
 The image is perfect for fast creation of light-weight web browser containers. They can be thrown away easily and replaced quickly, improving browsing privacy. They run under a non-root user by default, improving browsing security.
 
@@ -70,7 +71,7 @@ Both *named volumes* and *bind mounts* can be used. More about volumes can be fo
 
 ## Running containers in background (detached)
 
-Created containers run under the privileged **root** user by default. However, it's the container's root, which is not the same as the root of the hosting computer (see above).
+Created containers will run under the non-root user **headless:headless** by default.
 
 The following container will listen on automatically selected **TCP** ports of the host computer:
 
@@ -95,6 +96,8 @@ or using the newer syntax with **--mount** flag:
 ```docker
 docker run -d -P --mount source=my_Downloads,target=/home/headless/Downloads accetto/ubuntu-vnc-xfce-firefox-default
 ```
+
+More usage examples can be found in [Wiki][this-wiki] (section [HOWTO][this-wiki-howto]).
 
 ## Running containers in foreground (interactively)
 
@@ -203,9 +206,13 @@ If you do not find a solution, you can file a new issue. The better you describe
 [docker-ubuntu]: https://hub.docker.com/_/ubuntu/
 [docker-doc]: https://docs.docker.com/
 [docker-doc-managing-data]: https://docs.docker.com/storage/
+[docker-for-windows]: https://docs.docker.com/docker-for-windows/
+[docker-ce]: https://docs.docker.com/install/
 
 [qnap]: https://www.qnap.com/en/
 [container-station]: https://www.qnap.com/solution/container_station/en/
+
+[ubuntu-flavours]: https://www.ubuntu.com/download/flavours
 
 [firefox]: https://www.mozilla.org
 [mousepad]: https://github.com/codebrainz/mousepad
