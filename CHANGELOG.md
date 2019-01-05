@@ -8,6 +8,15 @@
 
 ***
 
+### Version 19.01
+
+- **TigerVNC** updated to version **1.9.0** (formerly 1.8.0), inherited from the [base image][accetto-github-ubuntu-vnc-xfce]
+- **websockify** updated to version **0.8.0** (formerly 0.6.1), inherited from the [base image][accetto-github-ubuntu-vnc-xfce]
+- Environment variable **REFRESHED_AT** removed
+- Xfce panels are pre-configured now
+- Container screenshot added to README
+- **Firefox Quantum** version **64.0** (gets updated to the current version on each re-build)
+
 ### Version 18.10
 
 - Fixed **Issue #7** (Problem with foreground mode) inherited from the [base image][accetto-github-ubuntu-vnc-xfce]
