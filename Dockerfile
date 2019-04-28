@@ -1,7 +1,9 @@
 # docker build -t accetto/ubuntu-vnc-xfce-firefox-default .
-# docker build --build-arg BASETAG=rolling -t accetto/ubuntu-vnc-xfce-firefox:rolling-default .
+# docker build -t accetto/ubuntu-vnc-xfce-firefox-default:dev .
+# docker build --build-arg BASETAG=dev -t accetto/ubuntu-vnc-xfce-firefox:dev .
 # docker build --build-arg ARG_VNC_USER=root:root -t accetto/ubuntu-vnc-xfce-firefox-default:root .
 # docker build --build-arg ARG_VNC_RESOLUTION=1360x768 -t accetto/ubuntu-vnc-xfce-firefox-default .
+# docker build --build-arg BASETAG=rolling -t accetto/ubuntu-vnc-xfce-firefox:rolling-default .
 
 ARG BASETAG=latest
 
@@ -25,13 +27,11 @@ ENV VNC_USER=${ARG_VNC_USER:-headless:headless}
 WORKDIR ${HOME}
 SHELL ["/bin/bash", "-c"]
 
-COPY [ "./src/firefox.desktop", "./Desktop/" ]
 COPY [ "./src/create_user_and_fix_permissions.sh", "./" ]
 
 ### 'sync' mitigates automated build failures
 RUN chmod +x \
         ./create_user_and_fix_permissions.sh \
-        ./Desktop/firefox.desktop \
     && sync \
     && ./create_user_and_fix_permissions.sh $STARTUPDIR $HOME \
     && rm ./create_user_and_fix_permissions.sh
@@ -53,15 +53,18 @@ ENV \
   VNC_BLACKLIST_TIMEOUT=${ARG_VNC_BLACKLIST_TIMEOUT:-0} \
   VNC_RESOLUTION=${ARG_VNC_RESOLUTION:-1024x768}
 
-### Preconfigure Xfce panels
-COPY [ "./src/xfce4/panel", "./.config/xfce4/panel/" ]
-COPY [ "./src/xfce4/xfce4-panel.xml", "./.config/xfce4/xfconf/xfce-perchannel-xml/" ]
-RUN chown -R ${VNC_USER} ./.config \
-    && chmod 700 ./.config/xfce4/xfconf/xfce-perchannel-xml \
-    && chmod 644 ./.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml \
+### Preconfigure Xfce
+COPY [ "./src/home/Desktop", "./Desktop/" ]
+COPY [ "./src/home/config/xfce4/panel", "./.config/xfce4/panel/" ]
+COPY [ "./src/home/config/xfce4/xfconf/xfce-perchannel-xml", "./.config/xfce4/xfconf/xfce-perchannel-xml/" ]
+RUN chown -R ${VNC_USER} ${HOME} \
+    && chmod 755 ./Desktop/*.desktop \
     && chmod 700 ./.config/xfce4/panel/launcher* \
-    && chmod 644 ./.config/xfce4/panel/launcher*/*
-    
+    && chmod 644 ./.config/xfce4/panel/launcher*/*.desktop \
+    && chmod 644 ./.config/xfce4/xfconf/xfce-perchannel-xml/*.xml
+
+ENV REFRESHED_AT 2019-04-28
+
 ### Switch to non-root user
 USER ${VNC_USER}
 

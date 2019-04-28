@@ -1,4 +1,4 @@
-# Headless Ubuntu/Xfce containers with VNC/noVNC and Firefox
+# Headless Ubuntu/Xfce container with VNC/noVNC and Firefox
 
 ## accetto/ubuntu-vnc-xfce-firefox-default
 
@@ -10,15 +10,15 @@
 
 ***
 
-**This repository** contains resources for building Docker images based on [Ubuntu][docker-ubuntu], with [Xfce][xfce] desktops, headless **VNC**/[noVNC][novnc] environments and default installation of the current [Firefox][firefox] browser in its default installation.
+**This repository** contains resources for building a Docker image based on [Ubuntu][docker-ubuntu] with [Xfce][xfce] desktop environment, **VNC**/[noVNC][novnc] servers for headless use and the current [Firefox][firefox] web browser in its default installation.
 
-This image can be successfully built and used on Linux, NAS devices and Windows.
+The image can be successfully built and used on Linux, Windows, Mac and NAS devices. It has been tested with [Docker Desktop][docker-desktop] on [Ubuntu flavours][ubuntu-flavours], [Windows 10][docker-for-windows] and [Container Station][container-station] from [QNAP][qnap].
 
-It has been tested with [Docker CE][docker-ce] on [Ubuntu flavours][ubuntu-flavours], with [Container Station][container-station] on a NAS from [QNAP][qnap] and with [Docker for Windows][docker-for-windows] on Windows 10.
+Containers created from this image make perfect light-weight web browsers. They can be thrown away easily and replaced quickly, improving browsing privacy. They run under a non-root user by default, improving browsing security.
 
-The image is perfect for fast creation of light-weight web browser containers. They can be thrown away easily and replaced quickly, improving browsing privacy. They run under a non-root user by default, improving browsing security.
+Running in background is the primary scenario for the containers, but using them interactively in foreground is also possible. For examples see the description below or the [HOWTO][this-wiki-howto] section in [Wiki][this-wiki].
 
-The image is based on the [accetto/ubuntu-vnc-xfce][accetto-docker-ubuntu-vnc-xfce] image, just adding the [Firefox][firefox] browser.
+The image is based on the [accetto/ubuntu-vnc-xfce][accetto-docker-ubuntu-vnc-xfce] image, just adding the [Firefox][firefox] browser in its default installation.
 
 The image inherits the following components from its [base image][accetto-docker-ubuntu-vnc-xfce]:
 
@@ -27,9 +27,8 @@ The image inherits the following components from its [base image][accetto-docker
 - [noVNC][novnc] HTML5 clients (full and lite) (TCP port **6901**)
 - popular text editor [vim][vim]
 - lite but advanced graphical editor [mousepad][mousepad]
+- **ping** utility
 - container start-up options
-
-Running containers in background is the primary scenario this image has been developed for. However, running in foreground can be useful in many cases. See the description below for examples of using the containers both ways.
 
 The image is regularly maintained and rebuilt. The history of notable changes is documented in [CHANGELOG][this-changelog].
 
@@ -40,13 +39,12 @@ The image is regularly maintained and rebuilt. The history of notable changes is
 - [accetto/ubuntu-vnc-xfce-firefox-default][this-docker]
 
   - `latest` based on `accetto/ubuntu-vnc-xfce:latest`
-  - `rolling` based on `accetto/ubuntu-vnc-xfce:rolling`
 
-    [![version badge](https://images.microbadger.com/badges/version/accetto/ubuntu-vnc-xfce-firefox-default.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox-default "Get your own version badge on microbadger.com") [![size badge](https://images.microbadger.com/badges/image/accetto/ubuntu-vnc-xfce-firefox-default.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox-default "Get your own image badge on microbadger.com") [![version badge](https://images.microbadger.com/badges/version/accetto/ubuntu-vnc-xfce-firefox-default:rolling.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox-default:rolling "Get your own version badge on microbadger.com") [![size badge](https://images.microbadger.com/badges/image/accetto/ubuntu-vnc-xfce-firefox-default:rolling.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox-default:rolling "Get your own image badge on microbadger.com")
+    [![version badge](https://images.microbadger.com/badges/version/accetto/ubuntu-vnc-xfce-firefox-default.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox-default "Get your own version badge on microbadger.com") [![size badge](https://images.microbadger.com/badges/image/accetto/ubuntu-vnc-xfce-firefox-default.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox-default "Get your own image badge on microbadger.com")
 
 ### Ports
 
-The images expose the following **TCP** ports:
+Following **TCP** ports are exposed:
 
 - **5901** used for access over **VNC**
 - **6901** used for access over [noVNC][novnc]
@@ -55,7 +53,7 @@ The default **VNC user** password is **headless**.
 
 ### Volumes
 
-The images do not create or use any external volumes by default. However, the following folders make good mounting points:
+The containers do not create or use any external volumes by default. However, the following folders make good mounting points:
 
 - /home/headless/Documents/
 - /home/headless/Downloads/
@@ -181,9 +179,13 @@ It's also possible to provide the password through the links:
 
 ## Issues
 
-If you have found a problem or just have a question, please check the [Issues][this-issues] and the [Troubleshooting][this-wiki-troubleshooting], [FAQ][this-wiki-faq] and [HOWTO][this-wiki-howto] pages in [Wiki][this-wiki] first. Please do not overlook also the closed issues.
+If you have found a problem or you just have a question, please check the [Issues][this-issues] and the [Troubleshooting][this-wiki-troubleshooting], [FAQ][this-wiki-faq] and [HOWTO][this-wiki-howto] sections in [Wiki][this-wiki] first. Please do not overlook the closed issues.
 
 If you do not find a solution, you can file a new issue. The better you describe the problem, the bigger the chance it'll be solved soon.
+
+## Credits
+
+Credit goes to all the countless people and companies who contribute to open source community and make so many dreamy things real.
 
 [this-docker]: https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-firefox-default/
 [this-github]: https://github.com/accetto/ubuntu-vnc-xfce-firefox
@@ -208,8 +210,8 @@ If you do not find a solution, you can file a new issue. The better you describe
 [docker-ubuntu]: https://hub.docker.com/_/ubuntu/
 [docker-doc]: https://docs.docker.com/
 [docker-doc-managing-data]: https://docs.docker.com/storage/
-[docker-for-windows]: https://docs.docker.com/docker-for-windows/
-[docker-ce]: https://docs.docker.com/install/
+[docker-for-windows]: https://hub.docker.com/editions/community/docker-ce-desktop-windows
+[docker-desktop]: https://www.docker.com/products/docker-desktop
 
 [qnap]: https://www.qnap.com/en/
 [container-station]: https://www.qnap.com/solution/container_station/en/
