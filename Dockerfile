@@ -63,7 +63,7 @@ RUN chown -R ${VNC_USER} ${HOME} \
     && chmod 644 ./.config/xfce4/panel/launcher*/*.desktop \
     && chmod 644 ./.config/xfce4/xfconf/xfce-perchannel-xml/*.xml
 
-ENV REFRESHED_AT 2019-05-08
+ENV REFRESHED_AT 2019-05-13
 
 ### Switch to non-root user
 USER ${VNC_USER}
