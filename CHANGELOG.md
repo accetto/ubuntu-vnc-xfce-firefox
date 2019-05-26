@@ -8,22 +8,30 @@
 
 ***
 
+### Version 19.05
+
+- Fixed [Issue #2](https://github.com/accetto/ubuntu-vnc-xfce-firefox/issues/2) (Panel icons not visible if changing container default user)
+- **Dockerfile** updated
+  - user permissions set using `set_user_permissions.sh` script (inherited from the [base image][this-base])
+- Launchers for **Vim** and **TigerVNC Viewer** added to the desktop (inherited from the [base image][this-base])
+- Utility `util-hdx.sh` updated (using [accetto/argbash-docker][accetto-docker-argbash-docker])
+
 ### Version 19.04
 
-- **noVNC** updated to version **1.1.0** (formerly 1.0.0), inherited from the [base image][accetto-github-ubuntu-vnc-xfce]
-- **ping** utility added, inherited from the [base image][accetto-github-ubuntu-vnc-xfce]
+- **noVNC** updated to version **1.1.0** (formerly 1.0.0), inherited from the [base image][this-base]
+- **ping** utility added, inherited from the [base image][this-base]
 - Environment variable **REFRESHED_AT** added back
 - Display settings launcher added to the desktop and the panels
   - to make resolution switching more convenient also with **noVNC** lite client
-  - inherited from the [base image][accetto-github-ubuntu-vnc-xfce]
+  - inherited from the [base image][this-base]
 - **Dockerfile_rolling** file removed
   - it can be easily cloned from the Dockerfile file for the **latest** build
   - **rolling** build will not be maintained on **Docker Hub** any more
 
 ### Version 19.01
 
-- **TigerVNC** updated to version **1.9.0** (formerly 1.8.0), inherited from the [base image][accetto-github-ubuntu-vnc-xfce]
-- **websockify** updated to version **0.8.0** (formerly 0.6.1), inherited from the [base image][accetto-github-ubuntu-vnc-xfce]
+- **TigerVNC** updated to version **1.9.0** (formerly 1.8.0), inherited from the [base image][this-base]
+- **websockify** updated to version **0.8.0** (formerly 0.6.1), inherited from the [base image][this-base]
 - Environment variable **REFRESHED_AT** removed
 - Xfce panels are pre-configured now
 - Container screenshot added to README
@@ -31,7 +39,7 @@
 
 ### Version 18.10
 
-- Fixed **Issue #7** (Problem with foreground mode) inherited from the [base image][accetto-github-ubuntu-vnc-xfce]
+- Fixed **Issue #7** (Problem with foreground mode) inherited from the [base image][this-base]
   - supported startup options: `--wait` (default), `--skip`, `--debug` (also `--tail-log`) and `--help`
   - getting help: `docker run --rm accetto/ubuntu-vnc-xfce --help`
   - README file is extended
@@ -41,7 +49,7 @@
 - Dockerfile redesigned
   - multi-staged and explicit
   - helper installation scripts mostly removed
-- Some other changes inherited from the base image [accetto/ubuntu-vnc-xfce][accetto-github-ubuntu-vnc-xfce]
+- Some other changes inherited from the [base image][this-base]
   - standard *Xfce* desktop, incl. initial panel configuration on the first start
   - editor **leafpad** replaced by more advanced but still lite [mousepad][mousepad]
   - **pulseaudio** and **pavucontrol** not purged any more
@@ -68,8 +76,12 @@
 [this-docker]: https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-firefox-default/
 [this-github]: https://github.com/accetto/ubuntu-vnc-xfce-firefox
 [this-wiki]: https://github.com/accetto/ubuntu-vnc-xfce-firefox/wiki
+[this-base]: https://hub.docker.com/r/accetto/ubuntu-vnc-xfce
 
 [accetto-github-ubuntu-vnc-xfce]: https://github.com/accetto/ubuntu-vnc-xfce
 [accetto-github-ubuntu-vnc-xfce-firefox-plus]: https://github.com/accetto/ubuntu-vnc-xfce-firefox-plus
+
+[accetto-docker-argbash-docker]: https://hub.docker.com/r/accetto/argbash-docker
+[accetto-github-argbash-docker]: https://github.com/accetto/argbash-docker
 
 [mousepad]: https://github.com/codebrainz/mousepad
