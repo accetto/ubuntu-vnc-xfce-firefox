@@ -8,6 +8,13 @@
 
 ***
 
+### Version 19.06
+
+- Script **set_user_permissions.sh** updated (inherited from the [base image][this-base])
+  - root group replaced by the current user group
+- **TigerVNC Viewer** desktop launcher icon fixed (inherited from the [base image][this-base])
+- Firefox version **67.0.1**
+
 ### Version 19.05
 
 - Fixed [Issue #2](https://github.com/accetto/ubuntu-vnc-xfce-firefox/issues/2) (Panel icons not visible if changing container default user)

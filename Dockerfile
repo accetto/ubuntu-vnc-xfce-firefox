@@ -3,7 +3,8 @@
 # docker build --build-arg BASETAG=dev -t accetto/ubuntu-vnc-xfce-firefox-default:dev .
 # docker build --build-arg ARG_VNC_USER=root:root -t accetto/ubuntu-vnc-xfce-firefox-default:root .
 # docker build --build-arg ARG_VNC_RESOLUTION=1360x768 -t accetto/ubuntu-vnc-xfce-firefox-default .
-# docker build --build-arg BASETAG=rolling -t accetto/ubuntu-vnc-xfce-firefox-default:rolling-default .
+# docker build --build-arg BASETAG=rolling -t accetto/ubuntu-vnc-xfce-firefox-default:rolling .
+# docker build --build-arg BASETAG=dev -t dev/ubuntu-vnc-xfce-firefox-default .
 
 ARG BASETAG=latest
 
@@ -60,7 +61,7 @@ COPY [ "./src/home/config/xfce4/xfconf/xfce-perchannel-xml", "./.config/xfce4/xf
 
 RUN ${STARTUPDIR}/set_user_permissions.sh $STARTUPDIR $HOME
 
-ENV REFRESHED_AT 2019-05-26
+ENV REFRESHED_AT 2019-06-09
 
 ### Switch to non-root user
 USER ${VNC_USER}
