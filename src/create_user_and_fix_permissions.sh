@@ -26,7 +26,7 @@ if [[ -n "${VNC_USER}" ]] ; then
         missing_user=$(id -u $UNAME > /dev/null 2>&1; echo $?)
 
         if [[ $missing_user != 0 ]] ; then
-            echo "Creating non-root user $VNC_USER"
+            echo "Creating non-root user \"$VNC_USER\"."
             useradd --no-log-init --gid $UGROUP --home-dir $HOME --shell /bin/bash --password $VNC_PW $UNAME
         fi
     else
@@ -42,7 +42,6 @@ do
     find "$var"/ -name '*.sh' -exec chmod a+x {} +
     find "$var"/ -name '*.desktop' -exec chmod a+x {} +
     
-    ### Not root any more. It's assumed that the user and its group names are identical.
-    #chgrp -R 0 "$var" && chmod -R -v a+rw "$var" && find "$var" -type d -exec chmod -v a+x {} +
-    chgrp -R $UGROUP $var && chmod -R a+rw $var && find $var -type d -exec chmod a+x {} +
+    ### folder and its content belong to the group zero (recursively)
+    chgrp -R 0 "$var" && chmod -R -v a+rw "$var" && find "$var" -type d -exec chmod -v a+x {} +
 done

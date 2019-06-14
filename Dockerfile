@@ -61,7 +61,7 @@ COPY [ "./src/home/config/xfce4/xfconf/xfce-perchannel-xml", "./.config/xfce4/xf
 
 RUN ${STARTUPDIR}/set_user_permissions.sh $STARTUPDIR $HOME
 
-ENV REFRESHED_AT 2019-06-09
+ENV REFRESHED_AT 2019-06-20
 
 ### Switch to non-root user
 USER ${VNC_USER}
