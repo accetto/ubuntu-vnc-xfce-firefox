@@ -8,6 +8,11 @@
 
 ***
 
+### Version 19.06.2
+
+- **README** updated
+  - reference to [accetto/xubuntu-vnc-firefox][accetto-docker-xubuntu-vnc-firefox] based on [accetto/xubuntu-vnc][accetto-docker-xubuntu-vnc] added - a streamlined and simplified image, without [noVNC][novnc] and [nss_wrapper][nsswrapper], with a growing family of derived images with various applications
+
 ### Version 19.06.1
 
 - File manager (Thunar) pre-configured (inherited from the [base image][this-base])
@@ -15,7 +20,7 @@
   - *Type* column suppressed
 - Script **create_user_and_fix_permissions.sh** updated
   - current user group replaced by group zero
-  - Firefox version **67.0.3**
+- Firefox version **67.0.3**
 
 ### Version 19.06
 
@@ -96,8 +101,12 @@
 
 [accetto-github-ubuntu-vnc-xfce]: https://github.com/accetto/ubuntu-vnc-xfce
 [accetto-github-ubuntu-vnc-xfce-firefox-plus]: https://github.com/accetto/ubuntu-vnc-xfce-firefox-plus
+[accetto-docker-xubuntu-vnc]: https://hub.docker.com/r/accetto/xubuntu-vnc
+[accetto-docker-xubuntu-vnc-firefox]:https://hub.docker.com/r/accetto/xubuntu-vnc-firefox
 
 [accetto-docker-argbash-docker]: https://hub.docker.com/r/accetto/argbash-docker
 [accetto-github-argbash-docker]: https://github.com/accetto/argbash-docker
 
 [mousepad]: https://github.com/codebrainz/mousepad
+[novnc]: https://github.com/kanaka/noVNC
+[nsswrapper]: https://cwrap.org/nss_wrapper.html

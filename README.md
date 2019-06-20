@@ -4,11 +4,15 @@
 
 [Docker Hub][this-docker] - [Git Hub][this-github] - [Changelog][this-changelog] - [Wiki][this-wiki]
 
+***
+
+**TIP** Unless you need [noVNC][novnc] or [nss_wrapper][nsswrapper], you can use the newer image [accetto/xubuntu-vnc-firefox:default][accetto-docker-xubuntu-vnc-firefox] based on [accetto/xubuntu-vnc][accetto-docker-xubuntu-vnc] - a streamlined and simplified version of this image with a growing family of derived application images.
+
+***
+
 **Attention:** Resources for building images with configurable Firefox, previously contained in the common base repository [ubuntu-vnc-xfce][accetto-github-ubuntu-vnc-xfce], have been moved to its own GitHub repository [ubuntu-vnc-xfce-firefox-plus][accetto-github-ubuntu-vnc-xfce-firefox-plus]. Resources for building the base images are in the GitHub repository [accetto/ubuntu-vnc-xfce][accetto-github-ubuntu-vnc-xfce].
 
 **Attention:** The Docker Hub repository is actually named [*ubuntu-vnc-xfce-firefox*-**default**][this-docker] to avoid conflicts with the previous generation image.
-
-***
 
 **This repository** contains resources for building a Docker image based on [Ubuntu][docker-ubuntu] with [Xfce][xfce] desktop environment, **VNC**/[noVNC][novnc] servers for headless use and the current [Firefox][firefox] web browser in its default installation.
 
@@ -203,6 +207,8 @@ Credit goes to all the countless people and companies who contribute to open sou
 
 [accetto-github-ubuntu-vnc-xfce]: https://github.com/accetto/ubuntu-vnc-xfce
 [accetto-docker-ubuntu-vnc-xfce]: https://hub.docker.com/r/accetto/ubuntu-vnc-xfce/
+[accetto-docker-xubuntu-vnc]: https://hub.docker.com/r/accetto/xubuntu-vnc
+[accetto-docker-xubuntu-vnc-firefox]:https://hub.docker.com/r/accetto/xubuntu-vnc-firefox
 
 [accetto-github-ubuntu-vnc-xfce-firefox-plus]: https://github.com/accetto/ubuntu-vnc-xfce-firefox-plus/
 [accetto-docker-ubuntu-vnc-xfce-firefox-plus]: https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-firefox-plus/
@@ -221,6 +227,7 @@ Credit goes to all the countless people and companies who contribute to open sou
 [firefox]: https://www.mozilla.org
 [mousepad]: https://github.com/codebrainz/mousepad
 [novnc]: https://github.com/kanaka/noVNC
+[nsswrapper]: https://cwrap.org/nss_wrapper.html
 [tigervnc]: http://tigervnc.org
 [tightvnc]: http://www.tightvnc.com
 [vim]: https://www.vim.org/
