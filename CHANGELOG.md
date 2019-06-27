@@ -12,7 +12,7 @@
 
 - **README** updated
   - reference to [accetto/xubuntu-vnc-firefox][accetto-docker-xubuntu-vnc-firefox] based on [accetto/xubuntu-vnc][accetto-docker-xubuntu-vnc] added - a streamlined and simplified image, without [noVNC][novnc] and [nss_wrapper][nsswrapper], with a growing family of derived images with various applications
-  - Firefox version **67.0.4**
+- Firefox version **67.0.4**
 
 ### Version 19.06.1
 
