@@ -6,7 +6,7 @@
 
 ***
 
-**TIP** Unless you need [noVNC][novnc] or [nss_wrapper][nsswrapper], you can use the newer image [accetto/xubuntu-vnc-firefox:default][accetto-docker-xubuntu-vnc-firefox] based on [accetto/xubuntu-vnc][accetto-docker-xubuntu-vnc] - a streamlined and simplified version of this image with a growing family of derived application images.
+**TIP** Unless you need [noVNC][novnc] or [nss_wrapper][nsswrapper], you can use the newer image [accetto/xubuntu-vnc-firefox:default][accetto-docker-xubuntu-vnc-firefox] based on [accetto/xubuntu-vnc][accetto-docker-xubuntu-vnc] - a streamlined and simplified image with a growing family of derived application images.
 
 ***
 
@@ -190,6 +190,8 @@ If you do not find a solution, you can file a new issue. The better you describe
 ## Credits
 
 Credit goes to all the countless people and companies who contribute to open source community and make so many dreamy things real.
+
+***
 
 [this-docker]: https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-firefox-default/
 [this-github]: https://github.com/accetto/ubuntu-vnc-xfce-firefox
