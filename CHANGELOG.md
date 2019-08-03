@@ -8,6 +8,11 @@
 
 ***
 
+### Version 19.08
+
+- keeping Firefox on version **67.0.4** because **68.0** and **68.0.1** crash a lot (Gah. Your tab just crashed.)
+  - installed explicitly from Mozilla distribution
+
 ### Version 19.06.2
 
 - **README** updated

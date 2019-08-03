@@ -1,5 +1,6 @@
 # docker build -t accetto/ubuntu-vnc-xfce-firefox-default .
 # docker build -t accetto/ubuntu-vnc-xfce-firefox-default:dev .
+# docker build -t accetto/ubuntu-vnc-xfce-firefox-default:dev-68 .
 # docker build --build-arg BASETAG=dev -t accetto/ubuntu-vnc-xfce-firefox-default:dev .
 # docker build --build-arg ARG_VNC_USER=root:root -t accetto/ubuntu-vnc-xfce-firefox-default:root .
 # docker build --build-arg ARG_VNC_RESOLUTION=1360x768 -t accetto/ubuntu-vnc-xfce-firefox-default .
@@ -14,9 +15,20 @@ FROM accetto/ubuntu-vnc-xfce:${BASETAG} as stage-install
 USER 0
 
 ### 'apt-get clean' runs automatically
-RUN apt-get update && apt-get install -y \
-        firefox \
-    && rm -rf /var/lib/apt/lists/*
+# RUN apt-get update && apt-get install -y \
+#         firefox \
+#     && rm -rf /var/lib/apt/lists/*
+
+### Alternatively install an explicit Firefox version
+### http://releases.mozilla.org/pub/firefox/releases/67.0.4/linux-x86_64/en-US/firefox-67.0.4.tar.bz2
+ENV \
+    FIREFOX_VERSION=67.0.4 \
+    FIREFOX_DISTRO=linux-x86_64 \
+    FIREFOX_PATH=/usr/lib/firefox
+RUN mkdir -p ${FIREFOX_PATH} \
+    && wget -qO- http://releases.mozilla.org/pub/firefox/releases/${FIREFOX_VERSION}/${FIREFOX_DISTRO}/en-US/firefox-${FIREFOX_VERSION}.tar.bz2 \
+        | tar xvj -C /usr/lib/ \
+    && ln -s ${FIREFOX_PATH}/firefox /usr/bin/firefox
 
 FROM stage-install as stage-config
 
@@ -61,7 +73,7 @@ COPY [ "./src/home/config/xfce4/xfconf/xfce-perchannel-xml", "./.config/xfce4/xf
 
 RUN ${STARTUPDIR}/set_user_permissions.sh $STARTUPDIR $HOME
 
-ENV REFRESHED_AT 2019-06-20
+ENV REFRESHED_AT 2019-08-03
 
 ### Switch to non-root user
 USER ${VNC_USER}
