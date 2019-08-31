@@ -44,7 +44,7 @@ The image is regularly maintained and rebuilt. The history of notable changes is
 
   - `latest` based on `accetto/ubuntu-vnc-xfce:latest`
 
-    [![version badge](https://images.microbadger.com/badges/version/accetto/ubuntu-vnc-xfce-firefox-default.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox-default "Get your own version badge on microbadger.com") [![size badge](https://images.microbadger.com/badges/image/accetto/ubuntu-vnc-xfce-firefox-default.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox-default "Get your own image badge on microbadger.com")
+    [![version badge](https://images.microbadger.com/badges/version/accetto/ubuntu-vnc-xfce-firefox-default:latest.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox-default:latest "Get your own version badge on microbadger.com") [![size badge](https://images.microbadger.com/badges/image/accetto/ubuntu-vnc-xfce-firefox-default:latest.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox-default:latest "Get your own image badge on microbadger.com")
 
 ### Ports
 
@@ -72,6 +72,35 @@ The following mounting point is specific to Firefox:
 - /home/headless/.mozilla
 
 Both *named volumes* and *bind mounts* can be used. More about volumes can be found in [Docker documentation][docker-doc] (e.g. [Manage data in Docker][docker-doc-managing-data]).
+
+## Firefox multi-process
+
+Firefox multi-process (also known as **Electrolysis** or just **E10S**) causes in Docker container heavy crashing (**Gah. Your tab just crashed.**) and therefore it needs to be disabled.
+
+In Firefox versions till **67.0.4** it could be done by setting the preferences **browser.tabs.remote.autostart** and **browser.tabs.remote.autostart.2** to **false**. However, Mozilla has removed this possibility since the Firefox version **68.0**.
+
+Since than it can be done only by setting the following environment variable:
+
+```bash
+MOZ_FORCE_DISABLE_E10S
+```
+
+Therefore the image tagged `latest` sets this variable to **1** by using the build argument **ARG_MOZ_FORCE_DISABLE_E10S**.
+
+Note that any value will actually disable the multi-process feature, so the both following settings would have the same effect:
+
+```bash
+MOZ_FORCE_DISABLE_E10S=1
+MOZ_FORCE_DISABLE_E10S=0
+```
+
+Building an image without the build argument **ARG_MOZ_FORCE_DISABLE_E10S** enables the Firefox multi-process feature.
+
+To check whether the Firefox multi-process is enabled or disabled, navigate the web browser to the following URL:
+
+```bash
+about:support
+```
 
 ## Running containers in background (detached)
 

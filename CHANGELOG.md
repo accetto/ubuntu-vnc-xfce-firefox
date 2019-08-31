@@ -8,6 +8,16 @@
 
 ***
 
+### Version 19.08.1
+
+- newer base image (**Ubuntu 18.04.3 LTS**) (inherited from the base image)
+- **Firefox** updated to version **68.0.2**
+- environment variable **MOZ_FORCE_DISABLE_E10S** and build argument **ARG_MOZ_FORCE_DISABLE_E10S** introduced
+  - Firefox multi-process is **disabled** by default
+- build argument **ARG_REFRESHED_AT** introduced
+  - environment variable **REFRESHED_AT** set to the actual build date
+  - utility **util-update-refreshed-at** removed
+
 ### Version 19.08
 
 - keeping Firefox on version **67.0.4** because **68.0** and **68.0.1** crash a lot (Gah. Your tab just crashed.)

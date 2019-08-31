@@ -1,0 +1,22 @@
+### hooks/env
+
+ARCHIVE_TAG="ubuntu18.04.3-firefox_68.0.2-build1-0ubuntu0.18.04.1"
+TODAY=$(date +%Y-%m-%d)
+BASETAG=""
+
+case "$DOCKER_TAG" in
+
+    latest)
+        BASETAG="latest"
+        IS_SINGLEPROCESS_BUILD=yes
+        ;;
+
+    dev)
+        BASETAG="dev"
+        IS_SINGLEPROCESS_BUILD=yes
+        ;;
+
+    *)
+        BASETAG=""
+        ;;
+esac

@@ -1,0 +1,15 @@
+#!/bin/bash -xe
+
+. ./hooks/env
+
+if [[ -n "$BASETAG" ]] ; then
+
+    docker build \
+        -f $DOCKERFILE_PATH \
+            --build-arg BASETAG="$BASETAG" \
+            --build-arg ARG_REFRESHED_AT="$TODAY" \
+            ${IS_SINGLEPROCESS_BUILD:+--build-arg ARG_MOZ_FORCE_DISABLE_E10S=yes} \
+        -t $DOCKER_REPO:$DOCKER_TAG .
+else
+    echo "Build request not recognized: $SOURCE_BRANCH"
+fi
