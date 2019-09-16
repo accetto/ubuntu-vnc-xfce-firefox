@@ -8,6 +8,12 @@
 
 ***
 
+### Version 19.09
+
+- environment variable **VERSION_STICKER** and build argument **ARG_VERSION_STICKER** introduced
+- scripts **version_sticker.sh** and **version_of.sh** introduced
+- Firefox version **69.0**
+
 ### Version 19.08.1
 
 - newer base image (**Ubuntu 18.04.3 LTS**) (inherited from the base image)

@@ -1,9 +1,5 @@
-# docker build -t accetto/ubuntu-vnc-xfce-firefox-default .
-# docker build -t accetto/ubuntu-vnc-xfce-firefox-default:dev .
-# docker build --build-arg BASETAG=dev -t accetto/ubuntu-vnc-xfce-firefox-default:dev .
-# docker build --build-arg ARG_VNC_USER=root:root -t accetto/ubuntu-vnc-xfce-firefox-default:root .
-# docker build --build-arg ARG_VNC_RESOLUTION=1360x768 -t accetto/ubuntu-vnc-xfce-firefox-default .
-# docker build --build-arg BASETAG=rolling -t accetto/ubuntu-vnc-xfce-firefox-default:rolling .
+# ./hooks/build dev
+# ./hooks/build dfw
 
 ARG BASETAG=latest
 
@@ -55,25 +51,31 @@ LABEL \
     any.accetto.tags="ubuntu, xfce, vnc, novnc, firefox"
 
 ### Arguments can be provided during build
+ARG ARG_MOZ_FORCE_DISABLE_E10S
+ARG ARG_REFRESHED_AT
+ARG ARG_VERSION_STICKER
 ARG ARG_VNC_BLACKLIST_THRESHOLD
 ARG ARG_VNC_BLACKLIST_TIMEOUT
 ARG ARG_VNC_RESOLUTION
-ARG ARG_REFRESHED_AT
-ARG ARG_MOZ_FORCE_DISABLE_E10S
 
 ENV \
+  REFRESHED_AT=${ARG_REFRESHED_AT} \
+  VERSION_STICKER=${ARG_VERSION_STICKER} \
   VNC_BLACKLIST_THRESHOLD=${ARG_VNC_BLACKLIST_THRESHOLD:-20} \
   VNC_BLACKLIST_TIMEOUT=${ARG_VNC_BLACKLIST_TIMEOUT:-0} \
   VNC_RESOLUTION=${ARG_VNC_RESOLUTION:-1024x768} \
-  MOZ_FORCE_DISABLE_E10S=${ARG_MOZ_FORCE_DISABLE_E10S:+1} \
-  REFRESHED_AT=${ARG_REFRESHED_AT}
+  MOZ_FORCE_DISABLE_E10S=${ARG_MOZ_FORCE_DISABLE_E10S:+1}
 
 ### Preconfigure Xfce
 COPY [ "./src/home/Desktop", "./Desktop/" ]
 COPY [ "./src/home/config/xfce4/panel", "./.config/xfce4/panel/" ]
 COPY [ "./src/home/config/xfce4/xfconf/xfce-perchannel-xml", "./.config/xfce4/xfconf/xfce-perchannel-xml/" ]
+COPY [ "./src/startup/version_sticker.sh", "${STARTUPDIR}/" ]
 
-RUN ${STARTUPDIR}/set_user_permissions.sh $STARTUPDIR $HOME
+### Fix permissions
+RUN \
+    chmod a+wx "${STARTUPDIR}"/version_sticker.sh \
+    && "${STARTUPDIR}"/set_user_permissions.sh "${STARTUPDIR}" "${HOME}"
 
 ### Switch to non-root user
 USER ${VNC_USER}

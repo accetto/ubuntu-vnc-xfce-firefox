@@ -8,6 +8,7 @@ if [[ -n "$BASETAG" ]] ; then
         -f $DOCKERFILE_PATH \
             --build-arg BASETAG="$BASETAG" \
             --build-arg ARG_REFRESHED_AT="$TODAY" \
+            --build-arg ARG_VERSION_STICKER="$VERSION_STICKER" \
             ${IS_SINGLEPROCESS_BUILD:+--build-arg ARG_MOZ_FORCE_DISABLE_E10S=yes} \
         -t $DOCKER_REPO:$DOCKER_TAG .
 else
