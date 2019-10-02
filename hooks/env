@@ -7,7 +7,7 @@ DOCKER_REPO=${DOCKER_REPO:-accetto/ubuntu-vnc-xfce-firefox-default}
 
 TODAY=$(date +%Y-%m-%d)
 BASETAG=""
-VERSION_STICKER="ubuntu18.04.3-firefox69.0"
+VERSION_STICKER="ubuntu18.04.3-firefox69.0.1"
 
 case "$DOCKER_TAG" in
 
