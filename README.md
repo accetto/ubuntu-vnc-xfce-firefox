@@ -6,6 +6,11 @@
 
 ***
 
+![badge-docker-pulls][badge-docker-pulls]
+![badge-docker-stars][badge-docker-stars]
+![badge-github-release][badge-github-release]
+![badge-github-release-date][badge-github-release-date]
+
 **TIP** Unless you need [nss_wrapper][nsswrapper], you can also use my newer image [accetto/xubuntu-vnc-novnc-firefox:default][accetto-docker-xubuntu-vnc-novnc-firefox:default], which is a streamlined version of this image ([image hierarchy][accetto-xubuntu-vnc-novnc-wiki-image-hierarchy]). If you also don't need [noVNC][novnc], you can use even a slimmer image [accetto/xubuntu-vnc-firefox:default][accetto-docker-xubuntu-vnc-firefox:default], which is a member of another growing family of application images ([image hierarchy][accetto-xubuntu-vnc-wiki-image-hierarchy]). The newer images include also **sudo** command.
 
 ***
@@ -44,7 +49,8 @@ The image is regularly maintained and rebuilt. The history of notable changes is
 
   - `latest` based on `accetto/ubuntu-vnc-xfce:latest`
 
-    [![version badge](https://images.microbadger.com/badges/version/accetto/ubuntu-vnc-xfce-firefox-default:latest.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox-default:latest "Get your own version badge on microbadger.com") [![size badge](https://images.microbadger.com/badges/image/accetto/ubuntu-vnc-xfce-firefox-default:latest.svg)](https://microbadger.com/images/accetto/ubuntu-vnc-xfce-firefox-default:latest "Get your own image badge on microbadger.com")
+    ![badge-VERSION_STICKER_LATEST][badge-VERSION_STICKER_LATEST]
+    ![badge-github-commit-latest][badge-github-commit-latest]
 
 ### Ports
 
@@ -269,3 +275,21 @@ Credit goes to all the countless people and companies who contribute to open sou
 [xfce]: http://www.xfce.org
 
 [screenshot-container]: https://raw.githubusercontent.com/accetto/ubuntu-vnc-xfce-firefox/master/ubuntu-vnc-xfce-firefox.jpg
+
+<!-- docker badges -->
+
+[badge-docker-pulls]: https://badgen.net/docker/pulls/accetto/ubuntu-vnc-xfce-firefox-default?icon=docker&label=pulls
+
+[badge-docker-stars]: https://badgen.net/docker/stars/accetto/ubuntu-vnc-xfce-firefox-default?icon=docker&label=stars
+
+<!-- github badges -->
+
+[badge-github-release]: https://badgen.net/github/release/accetto/ubuntu-vnc-xfce-firefox?icon=github&label=release
+
+[badge-github-release-date]: https://img.shields.io/github/release-date/accetto/ubuntu-vnc-xfce-firefox?logo=github
+
+<!-- latest tag badges -->
+
+[badge-VERSION_STICKER_LATEST]: https://badgen.net/badge/version%20sticker/ubuntu18.04.3-firefox69.0.2/blue
+
+[badge-github-commit-latest]: https://images.microbadger.com/badges/commit/accetto/ubuntu-vnc-xfce-firefox-default.svg
