@@ -8,6 +8,17 @@
 
 ***
 
+### Version 19.10.4
+
+- inherited from the base:
+  - **ubuntu** base image updated
+  - **zip**, **unzip**, **curl** and **git** added
+  - **jq** (JSON processor) added in its latest version **1.6**
+  - **version_of.sh** script handles also **jq**
+- **version_sticker.sh** reports new apps inherited from the base
+- `test` build hook updated
+- README file updated
+
 ### Version 19.10.3
 
 - README updated

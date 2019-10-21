@@ -38,13 +38,14 @@ The image is based on the [accetto/ubuntu-vnc-xfce][accetto-docker-ubuntu-vnc-xf
 
 The image inherits the following components from its [base image][accetto-docker-ubuntu-vnc-xfce]:
 
-- light-weight [Xfce][xfce] desktop environment
-- high-performance VNC server [TigerVNC][tigervnc] (TCP port **5901**)
-- [noVNC][novnc] HTML5 clients (full and lite) (TCP port **6901**)
-- popular text editor [vim][vim]
-- lite but advanced graphical editor [mousepad][mousepad]
-- **ping** utility
-- container start-up options
+- utilities **ping**, **wget**, **zip**, **unzip**, **sudo**, [curl][curl], [git][git] (Ubuntu distribution)
+- current version of JSON processor [jq][jq]
+- light-weight [Xfce][xfce] desktop environment (Ubuntu distribution)
+- current version of high-performance [TigerVNC][tigervnc] server and client
+- current version of [noVNC][novnc] HTML5 clients (full and lite) (TCP port **6901**)
+- popular text editor [vim][vim] (Ubuntu distribution)
+- lite but advanced graphical editor [mousepad][mousepad] (Ubuntu distribution)
+- support of **version sticker** (see below)
 
 The image is regularly maintained and rebuilt. The history of notable changes is documented in [CHANGELOG][this-changelog].
 
@@ -290,7 +291,10 @@ Credit goes to all the countless people and companies who contribute to open sou
 
 [ubuntu-flavours]: https://www.ubuntu.com/download/flavours
 
+[curl]: http://manpages.ubuntu.com/manpages/bionic/man1/curl.1.html
 [firefox]: https://www.mozilla.org
+[git]: https://git-scm.com/
+[jq]: https://stedolan.github.io/jq/
 [mousepad]: https://github.com/codebrainz/mousepad
 [novnc]: https://github.com/kanaka/noVNC
 [nsswrapper]: https://cwrap.org/nss_wrapper.html
