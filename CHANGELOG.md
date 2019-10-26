@@ -8,6 +8,10 @@
 
 ***
 
+### Version 19.10.5
+
+- Firefox **70.0**
+
 ### Version 19.10.4
 
 - inherited from the base:
