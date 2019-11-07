@@ -8,6 +8,12 @@
 
 ***
 
+### Version 19.11
+
+- inherited from the base:
+  - **ubuntu** base image updated
+- Firefox **70.0.1**
+
 ### Version 19.10.5
 
 - Firefox **70.0**
