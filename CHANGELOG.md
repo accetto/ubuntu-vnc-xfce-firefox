@@ -8,6 +8,10 @@
 
 ***
 
+### Release 19.12
+
+- Firefox **71.0**
+
 ### Version 19.11.2
 
 - **TigerVNC** server and client updated to version **1.10.0** (inherited from the base)
