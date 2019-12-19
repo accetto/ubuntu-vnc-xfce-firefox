@@ -8,6 +8,10 @@
 
 ***
 
+### Release 19.12.1
+
+- **Ubuntu** base image has been updated
+
 ### Release 19.12
 
 - Firefox **71.0**
