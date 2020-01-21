@@ -8,6 +8,11 @@
 
 ***
 
+### Release 20.01
+
+- **Ubuntu** base image has been updated
+- Firefox **72.0.1**
+
 ### Release 19.12.1
 
 - **Ubuntu** base image has been updated
