@@ -8,6 +8,10 @@
 
 ***
 
+### Release 20.02
+
+- Firefox **72.0.2**
+
 ### Release 20.01
 
 - **Ubuntu** base image has been updated
