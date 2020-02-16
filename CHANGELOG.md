@@ -8,6 +8,13 @@
 
 ***
 
+### Release 20.02.1
+
+- Firefox **73.0**
+- desktop launcher for version sticker script (verbose) (inherited from the base)
+- container screenshot updated
+- **README** updated
+
 ### Release 20.02
 
 - Firefox **72.0.2**
