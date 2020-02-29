@@ -10,7 +10,7 @@
 
 ### Release 20.02.3
 
-Firefox **73.0.1**
+- Firefox **73.0.1**
 
 ### Release 20.02.2
 
