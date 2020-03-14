@@ -8,6 +8,10 @@
 
 ***
 
+### Release 20.03
+
+- Firefox **74.0**
+
 ### Release 20.02.3
 
 - Firefox **73.0.1**
