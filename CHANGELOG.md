@@ -8,6 +8,10 @@
 
 ***
 
+### Release 20.04
+
+- Firefox **74.0.1**
+
 ### Release 20.03.1
 
 - **Ubuntu** base image updated (inherited from base)
