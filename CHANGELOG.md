@@ -8,6 +8,10 @@
 
 ***
 
+### Release 20.05
+
+- Firefox **76.0.1**
+
 ### Release 20.04.2
 
 - All changes inherited from the base image:
