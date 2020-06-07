@@ -181,14 +181,14 @@ OPTIONS:
 -w, --wait      (default) Keeps the UI and the vnc server up until SIGINT or SIGTERM are received.
                 An optional command can be executed after the vnc starts up.
                 example: docker run -d -P accetto/ubuntu-vnc-xfce
-                example: docker run -it -P accetto/ubuntu-vnc-xfce /bin/bash
+                example: docker run -it -P --rm accetto/ubuntu-vnc-xfce bash
 
 -s, --skip      Skips the vnc startup and just executes the provided command.
-                example: docker run -it -P accetto/ubuntu-vnc-xfce --skip /bin/bash
+                example: docker run -it -P --rm accetto/ubuntu-vnc-xfce --skip echo $BASH_VERSION
 
 -d, --debug     Executes the vnc startup and tails the vnc/noVNC logs.
                 Any parameters after '--debug' are ignored. CTRL-C stops the container.
-                example: docker run -it -P accetto/ubuntu-vnc-xfce --debug
+                example: docker run -it -P --rm accetto/ubuntu-vnc-xfce --debug
 
 -t, --tail-log  same as '--debug'
 
@@ -333,6 +333,6 @@ Credit goes to all the countless people and companies who contribute to open sou
 
 <!-- latest tag badges -->
 
-[badge-VERSION_STICKER_LATEST]: https://badgen.net/badge/version%20sticker/ubuntu18.04.4-firefox76.0.1/blue
+[badge-VERSION_STICKER_LATEST]: https://badgen.net/badge/version%20sticker/ubuntu18.04.4-firefox77.0.1/blue
 
 [badge-github-commit-latest]: https://images.microbadger.com/badges/commit/accetto/ubuntu-vnc-xfce-firefox-default.svg

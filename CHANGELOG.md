@@ -8,6 +8,12 @@
 
 ***
 
+### Release 20.06
+
+- Firefox **77.0.1**
+- minor changes in **README**
+  - making it more similar to [accetto/xubuntu-vnc](https://hub.docker.com/r/accetto/xubuntu-vnc) and [accetto/xubuntu-vnc-novnc](https://hub.docker.com/r/accetto/xubuntu-vnc-novnc)
+
 ### Release 20.05
 
 - Firefox **76.0.1**
