@@ -8,6 +8,11 @@
 
 ***
 
+### Release 20.06.1
+
+- Quick mitigation of issue [#3 (Firefox 77.0.1 scrambles pages)](https://github.com/accetto/ubuntu-vnc-xfce-firefox/issues/3)
+  - by rolling back **Firefox** to version **76.0.1**
+
 ### Release 20.06
 
 - Firefox **77.0.1**
