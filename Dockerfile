@@ -1,7 +1,21 @@
-# ./hooks/build dev
-# ./hooks/build dfw
 # ./hooks/build nux
 # ./hooks/build nux --no-cache
+# ./hooks/build dfw
+# ./hooks/build dfw --no-cache
+# ./hooks/build dev
+# ./hooks/build dev --no-cache
+# ./hooks/build dev-singleprocess
+# ./hooks/build dfw-singleprocess
+# ./hooks/build nux-singleprocess
+
+### Build it locally like, for example:
+### ./utils/util-hdx.sh Dockerfile 2
+### Test it locally like, for example:
+### ./hooks/test nux
+### Result last line should be:
+### + exit 0
+### If 'exit 1' then adjust the version sticker variables in
+### ./hooks/env
 
 ARG BASETAG=latest
 
@@ -11,21 +25,21 @@ FROM accetto/ubuntu-vnc-xfce:${BASETAG} as stage-install
 USER 0
 
 ### 'apt-get clean' runs automatically
-# RUN apt-get update && apt-get install -y \
-#         firefox \
-#     && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+        firefox \
+    && rm -rf /var/lib/apt/lists/*
 
 ### Mitigating issue #3 (Firefox 77.0.1 scrambles pages) - rollback to version 76.0.1
 ### Alternatively install an explicit Firefox version
 ### http://releases.mozilla.org/pub/firefox/releases/67.0.4/linux-x86_64/en-US/firefox-67.0.4.tar.bz2
-ENV \
-    FIREFOX_VERSION=76.0.1 \
-    FIREFOX_DISTRO=linux-x86_64 \
-    FIREFOX_PATH=/usr/lib/firefox
-RUN mkdir -p ${FIREFOX_PATH} \
-    && wget -qO- http://releases.mozilla.org/pub/firefox/releases/${FIREFOX_VERSION}/${FIREFOX_DISTRO}/en-US/firefox-${FIREFOX_VERSION}.tar.bz2 \
-        | tar xvj -C /usr/lib/ \
-    && ln -s ${FIREFOX_PATH}/firefox /usr/bin/firefox
+# ENV \
+#     FIREFOX_VERSION=76.0.1 \
+#     FIREFOX_DISTRO=linux-x86_64 \
+#     FIREFOX_PATH=/usr/lib/firefox
+# RUN mkdir -p ${FIREFOX_PATH} \
+#     && wget -qO- http://releases.mozilla.org/pub/firefox/releases/${FIREFOX_VERSION}/${FIREFOX_DISTRO}/en-US/firefox-${FIREFOX_VERSION}.tar.bz2 \
+#         | tar xvj -C /usr/lib/ \
+#     && ln -s ${FIREFOX_PATH}/firefox /usr/bin/firefox
 
 ### Alternatively install an explicit Firefox version
 ### http://releases.mozilla.org/pub/firefox/releases/67.0.4/linux-x86_64/en-US/firefox-67.0.4.tar.bz2
@@ -81,7 +95,7 @@ ENV \
   VERSION_STICKER=${ARG_VERSION_STICKER} \
   VNC_BLACKLIST_THRESHOLD=${ARG_VNC_BLACKLIST_THRESHOLD:-20} \
   VNC_BLACKLIST_TIMEOUT=${ARG_VNC_BLACKLIST_TIMEOUT:-0} \
-  VNC_RESOLUTION=${ARG_VNC_RESOLUTION:-1024x768} \
+  VNC_RESOLUTION=${ARG_VNC_RESOLUTION:-1360x768} \
   MOZ_FORCE_DISABLE_E10S=${ARG_MOZ_FORCE_DISABLE_E10S:+1}
 
 ### Preconfigure Xfce

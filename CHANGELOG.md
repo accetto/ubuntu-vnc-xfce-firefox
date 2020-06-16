@@ -8,6 +8,26 @@
 
 ***
 
+### Release 20.06.02
+
+- Firefox **77.0.1**
+  - **IMPORTANT**: multi-threaded mode is default now, but larger shared memory is required (see bellow)
+    - environment variable MOZ_FORCE_DISABLE_E10S=1 is not default any more
+    - **containers with Firefox require more shared memory** (/dev/shm) to run reliably
+      - at least 256MB is recommended (default is 64MB)
+      - use `docker run --shm-size=256m`
+        - or `shm_size: 256m` at service level in docker-compose
+    - this could be **possibly a breaking change**!
+    - FIXED: [Issue #3 (Firefox 77.0.1 scrambles pages)](https://github.com/accetto/ubuntu-vnc-xfce-firefox/issues/3)
+    - Internet browsing should be sand-boxed now
+    - tag `singleprocess` is introduced
+      - which is single-threaded, but
+      - please be aware that in **this** release (Firefox 77.0.1) webpages will be still scrambled (issue #3)
+- Other changes:
+  - default VNC resolution changed to 1360x768
+  - added some help comments into Dockerfile
+  - //TODO: README updated
+
 ### Release 20.06.1
 
 - Quick mitigation of issue [#3 (Firefox 77.0.1 scrambles pages)](https://github.com/accetto/ubuntu-vnc-xfce-firefox/issues/3)
