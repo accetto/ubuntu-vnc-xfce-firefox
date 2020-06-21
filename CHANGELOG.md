@@ -8,7 +8,7 @@
 
 ***
 
-### Release 20.06.02
+### Release 20.06.2
 
 - Firefox **77.0.1**
   - **IMPORTANT**: Firefox multi-process mode is default now and therefore larger shared memory (`/dev/shm`) is required (see bellow)
