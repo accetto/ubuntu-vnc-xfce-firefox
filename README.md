@@ -22,6 +22,12 @@
 
 ***
 
+**WARNING** about images with Firefox
+
+Starting from the release **20.06.2**, the single-process and multi-process modes of the Firefox browser have been swapped. The mainstream image tagged as `latest` run Firefox with **multi-process enabled** now. A new image tagged as `singleprocess` has been introduced. Be aware, that multi-process requires larger shared memory (`/dev/shm`). At least **256MB** is recommended. Please check the [Firefox multi-process][that-wiki-firefox-multiprocess] page in Wiki for more information and the instructions, how to set the shared memory size in different scenarios.
+
+***
+
 **Attention:** Resources for building images with configurable Firefox, previously contained in the common base repository [ubuntu-vnc-xfce][accetto-github-ubuntu-vnc-xfce], have been moved to its own GitHub repository [ubuntu-vnc-xfce-firefox-plus][accetto-github-ubuntu-vnc-xfce-firefox-plus]. Resources for building the base images are in the GitHub repository [accetto/ubuntu-vnc-xfce][accetto-github-ubuntu-vnc-xfce].
 
 **Attention:** The Docker Hub repository is actually named [*ubuntu-vnc-xfce-firefox*-**default**][this-docker] to avoid conflicts with the previous generation image.
@@ -55,12 +61,15 @@ The image is regularly maintained and rebuilt. The history of notable changes is
 
 - [accetto/ubuntu-vnc-xfce-firefox-default][this-docker]
 
-  - `latest` based on `accetto/ubuntu-vnc-xfce:latest`
+  - `latest` based on `accetto/ubuntu-vnc-xfce:latest` and the Firefox multiprocess is **enabled** (see below)
 
     ![badge-VERSION_STICKER_LATEST][badge-VERSION_STICKER_LATEST]
     ![badge-github-commit-latest][badge-github-commit-latest]
 
-  - //TODO: `singleprocess` based on `accetto/ubuntu-vnc-xfce:latest`
+  - `singleprocess` is similar to `latest`, but it is built without the build argument **ARG_MOZ_FORCE_DISABLE_E10S**, so the Firefox multiprocess is **disabled**
+
+    ![badge-VERSION_STICKER_LATEST][badge-VERSION_STICKER_LATEST]
+    ![badge-github-commit-latest][badge-github-commit-latest]
 
 ### Ports
 
@@ -107,33 +116,34 @@ If it is called with the argument `-V` (upper case `v`), then it prints out verb
 
 Examples can be found in [Wiki][this-wiki].
 
-## TODO: Firefox multi-process
+## Firefox multi-process
 
-Firefox multi-process (also known as **Electrolysis** or just **E10S**) causes in Docker container heavy crashing (**Gah. Your tab just crashed.**) and therefore it needs to be disabled.
+Firefox multi-process (also known as **Electrolysis** or just **E10S**) can cause heavy crashing in Docker containers (**Gah. Your tab just crashed.**) if there is not enough shared memory.
 
-In Firefox versions till **67.0.4** it could be done by setting the preferences **browser.tabs.remote.autostart** and **browser.tabs.remote.autostart.2** to **false**. However, Mozilla has removed this possibility since the Firefox version **68.0**.
+In Firefox versions till **76.0.1** it has been possible to disable multi-process by setting the environment variable **MOZ_FORCE_DISABLE_E10S**. However, in Firefox **77.0.1** it has caused ugly scrambling of almost all web pages, because they were not decompressed.
 
-Since than it can be done only by setting the following environment variable:
+Mozilla has fixed the problem in the next release, but they still plan to stop supporting the switch completely. That is why I've decided, that the mainstream image tagged as `latest` will use multi-process by default, even if it requires larger shared memory. On the positive side, performance should be higher and Internet browsing should be sand-boxed.
+
+A new image tagged as `singleprocess` has been introduced. It can be used in scenarios, where increasing the shared memory size is not possible or not wanted.
+
+Please check the Wiki page [Firefox multi-process][that-wiki-firefox-multiprocess] for more information and the instructions, how the shared memory size can be set in different scenarios.
+
+### Setting shared memory size
+
+Instability of multi-process Firefox is caused by setting the shared memory size too low. Docker assigns only **64MB** by default. Testing on my computers has shown, that using at least **256MB** completely eliminates the problem. However, it could be different on your system.
+
+The Wiki page [Firefox multi-process][that-wiki-firefox-multiprocess] describes several ways, how to increase the shared memory size. It's really simple, if you need it for a single container started from the command line.
+
+For example, the following container will have its shared memory size set to 256MB:
 
 ```bash
-MOZ_FORCE_DISABLE_E10S
+docker run -d -P --shm-size=256m accetto/xubuntu-vnc-xfce-firefox-default
 ```
 
-Therefore the image tagged `latest` sets this variable to **1** by using the build argument **ARG_MOZ_FORCE_DISABLE_E10S**.
-
-Note that any value will actually disable the multi-process feature, so the both following settings would have the same effect:
+You can check the current shared memory size by executing the following command inside the container:
 
 ```bash
-MOZ_FORCE_DISABLE_E10S=1
-MOZ_FORCE_DISABLE_E10S=0
-```
-
-Building an image without the build argument **ARG_MOZ_FORCE_DISABLE_E10S** enables the Firefox multi-process feature.
-
-To check whether the Firefox multi-process is enabled or disabled, navigate the web browser to the following URL:
-
-```bash
-about:support
+df -h /dev/shm
 ```
 
 ## Running containers in background (detached)
@@ -266,6 +276,8 @@ Credit goes to all the countless people and companies who contribute to open sou
 [this-wiki-howto]: https://github.com/accetto/ubuntu-vnc-xfce-firefox/wiki/How-to
 [this-wiki-troubleshooting]: https://github.com/accetto/ubuntu-vnc-xfce-firefox/wiki/Troubleshooting
 [this-wiki-faq]: https://github.com/accetto/ubuntu-vnc-xfce-firefox/wiki/Frequently-asked-questions
+
+[that-wiki-firefox-multiprocess]: https://github.com/accetto/xubuntu-vnc/wiki/Firefox-multiprocess
 
 [accetto-github]: https://github.com/accetto/
 [accetto-docker]: https://hub.docker.com/u/accetto/
