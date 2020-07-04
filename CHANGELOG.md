@@ -8,6 +8,11 @@
 
 ***
 
+### Release 20.07
+
+- Firefox **78.0.1**
+- fix in `push` hook script
+
 ### Release 20.06.2
 
 - Firefox **77.0.1**

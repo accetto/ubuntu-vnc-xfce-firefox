@@ -11,6 +11,10 @@ if [[ -n "${BASETAG}" ]] ; then
             docker tag ${IMAGE_NAME} ${DOCKER_REPO}:${VERSION_STICKER}
             docker push ${DOCKER_REPO}:${VERSION_STICKER}
             ;;
+        singleprocess)
+            docker tag ${IMAGE_NAME} ${DOCKER_REPO}:singleprocess-${VERSION_STICKER}
+            docker push ${DOCKER_REPO}:singleprocess-${VERSION_STICKER}
+            ;;
     esac
 else
     echo "Nothing to push!"
