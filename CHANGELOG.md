@@ -13,6 +13,11 @@
 - base image has been updated
 - Firefox **79.0**
 
+### Release 20.07.1
+
+- base **ubuntu-vnc-xfce** image has been updated
+- Firefox **78.0.2**
+
 ### Release 20.07
 
 - Firefox **78.0.1**
