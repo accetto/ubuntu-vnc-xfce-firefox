@@ -8,6 +8,11 @@
 
 ***
 
+### Release 20.08
+
+- base image has been updated
+- Firefox **79.0**
+
 ### Release 20.07
 
 - Firefox **78.0.1**
