@@ -8,6 +8,10 @@
 
 ***
 
+### Release 20.08.1
+
+- base image has been updated to version **18.04.5**
+
 ### Release 20.08
 
 - base image has been updated
