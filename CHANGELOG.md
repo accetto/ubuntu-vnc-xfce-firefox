@@ -8,6 +8,10 @@
 
 ***
 
+### Release 20.08.2
+
+- Firefox **80.0**
+
 ### Release 20.08.1
 
 - base image has been updated to version **18.04.5**
@@ -15,7 +19,6 @@
 ### Release 20.08
 
 - base image has been updated
-- Firefox **79.0**
 
 ### Release 20.07.1
 
