@@ -8,6 +8,10 @@
 
 ***
 
+### Release 20.09
+
+- Firefox **80.0.1**
+
 ### Release 20.08.2
 
 - Firefox **80.0**
