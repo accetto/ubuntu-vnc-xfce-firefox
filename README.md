@@ -49,7 +49,7 @@ The image inherits the following components from its [base image][accetto-docker
 - light-weight [Xfce][xfce] desktop environment (Ubuntu distribution)
 - current version of high-performance [TigerVNC][tigervnc] server and client
 - current version of [noVNC][novnc] HTML5 clients (full and lite) (TCP port **6901**)
-- popular text editor [vim][vim] (Ubuntu distribution)
+- popular text editors [vim][vim] and [nano][nano] (Ubuntu distribution)
 - lite but advanced graphical editor [mousepad][mousepad] (Ubuntu distribution)
 - support of **version sticker** (see below)
 
@@ -310,6 +310,7 @@ Credit goes to all the countless people and companies who contribute to open sou
 [git]: https://git-scm.com/
 [jq]: https://stedolan.github.io/jq/
 [mousepad]: https://github.com/codebrainz/mousepad
+[nano]: https://www.nano-editor.org/
 [novnc]: https://github.com/kanaka/noVNC
 [nsswrapper]: https://cwrap.org/nss_wrapper.html
 [tigervnc]: http://tigervnc.org

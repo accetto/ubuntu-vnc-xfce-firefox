@@ -8,6 +8,10 @@
 
 ***
 
+### Release 20.09.1
+
+- **nano** editor added (inherited from base)
+
 ### Release 20.09
 
 - Firefox **80.0.1**
