@@ -1,20 +1,20 @@
-# ./hooks/build nux
-# ./hooks/build dfw
+# ./hooks/build latest
+# ./hooks/test latest
 # ./hooks/build dev
-# ./hooks/build nux-singleprocess
-# ./hooks/build dfw-singleprocess
-# ./hooks/build dev-singleprocess
+# ./hooks/test dev
 
-### Build it locally like, for example:
-### ./utils/util-hdx.sh Dockerfile 2
-### or for example
-### ./utils/util-hdx.sh Dockerfile 2 --no-cache
-### Test it locally like, for example:
-### ./hooks/test dfw
-### Result last line should be:
-### + exit 0
-### If 'exit 1' then adjust the version sticker variables in
-### ./hooks/env
+### Build and test 'dev' tag locally like
+### ./hooks/build dev
+### ./hooks/test dev
+### or with additional arguments
+### ./hooks/build dev 
+### ./hooks/test dev --no-cache
+### or using the utility
+### ./utils/util-hdx.sh Dockerfile 3
+### ./utils/util-hdx.sh Dockerfile 4
+### The last output line should be '+ exit 0'
+### If '+ exit 1' then adjust the version sticker
+### variables in script './hooks/env'
 
 ARG BASETAG=latest
 
@@ -73,7 +73,6 @@ RUN chmod +x \
 FROM stage-config as stage-final
 
 ### Arguments can be provided during build
-ARG ARG_MOZ_FORCE_DISABLE_E10S
 ARG ARG_REFRESHED_AT
 ARG ARG_VCS_REF
 ARG ARG_VERSION_STICKER
@@ -94,8 +93,7 @@ ENV \
   VERSION_STICKER=${ARG_VERSION_STICKER} \
   VNC_BLACKLIST_THRESHOLD=${ARG_VNC_BLACKLIST_THRESHOLD:-20} \
   VNC_BLACKLIST_TIMEOUT=${ARG_VNC_BLACKLIST_TIMEOUT:-0} \
-  VNC_RESOLUTION=${ARG_VNC_RESOLUTION:-1360x768} \
-  MOZ_FORCE_DISABLE_E10S=${ARG_MOZ_FORCE_DISABLE_E10S:+1}
+  VNC_RESOLUTION=${ARG_VNC_RESOLUTION:-1360x768}
 
 ### Preconfigure Xfce
 COPY [ "./src/home/Desktop", "./Desktop/" ]
