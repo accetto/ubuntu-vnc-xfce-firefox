@@ -1,14 +1,12 @@
-# ./hooks/build latest
-# ./hooks/test latest
 # ./hooks/build dev
 # ./hooks/test dev
 
-### Build and test 'dev' tag locally like
+### Example: Build and test 'dev' tag locally like
 ### ./hooks/build dev
 ### ./hooks/test dev
 ### or with additional arguments
-### ./hooks/build dev 
-### ./hooks/test dev --no-cache
+### ./hooks/build dev --no-cache
+### ./hooks/test dev
 ### or using the utility
 ### ./utils/util-hdx.sh Dockerfile 3
 ### ./utils/util-hdx.sh Dockerfile 4

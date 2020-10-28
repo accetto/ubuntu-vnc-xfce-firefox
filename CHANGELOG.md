@@ -8,6 +8,10 @@
 
 ***
 
+### Release 20.10.2
+
+- Firefox **82.0**
+
 ### Release 20.10.1
 
 - hook scripts updated
