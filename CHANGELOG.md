@@ -8,6 +8,10 @@
 
 ***
 
+### Release 21.01
+
+- Firefox **84.0.1**
+
 ### Release 20.12
 
 - README got links to the third generation (G3) of images
