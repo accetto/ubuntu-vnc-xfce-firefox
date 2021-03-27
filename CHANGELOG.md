@@ -8,6 +8,10 @@
 
 ***
 
+### Release 21.03.1
+
+- Firefox **87.0**
+
 ### Release 21.03
 
 - Firefox **86.0**
