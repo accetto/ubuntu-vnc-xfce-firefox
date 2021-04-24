@@ -46,7 +46,7 @@ The image is based on the [accetto/ubuntu-vnc-xfce][accetto-docker-ubuntu-vnc-xf
 
 The image inherits the following components from its [base image][accetto-docker-ubuntu-vnc-xfce]:
 
-- utilities **ping**, **wget**, **zip**, **unzip**, **sudo**, [curl][curl], [git][git] (Ubuntu distribution)
+- utilities **ping**, **wget**, **zip**, **unzip**, [curl][curl], [git][git] (Ubuntu distribution)
 - current version of JSON processor [jq][jq]
 - light-weight [Xfce][xfce] desktop environment (Ubuntu distribution)
 - current version of high-performance [TigerVNC][tigervnc] server and client
