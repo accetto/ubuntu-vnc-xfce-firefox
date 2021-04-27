@@ -8,6 +8,11 @@
 
 ***
 
+### Release 21.04
+
+- TigerVNC from [Release Mirror on accetto/tigervnc][accetto-tigervnc-release-mirror] because **Bintray** is closing on 2021-05-01 (inherited from the base image)
+- Firefox **88.0**
+
 ### Release 21.03.1
 
 - Firefox **87.0**
@@ -364,6 +369,8 @@
 
 [accetto-docker-argbash-docker]: https://hub.docker.com/r/accetto/argbash-docker
 [accetto-github-argbash-docker]: https://github.com/accetto/argbash-docker
+
+[accetto-tigervnc-release-mirror]: https://github.com/accetto/tigervnc/releases
 
 [mousepad]: https://github.com/codebrainz/mousepad
 [novnc]: https://github.com/kanaka/noVNC
