@@ -8,6 +8,10 @@
 
 ***
 
+### Release 21.05
+
+- Firefox **88.0.1**
+
 ### Release 21.04
 
 - TigerVNC from [Release Mirror on accetto/tigervnc][accetto-tigervnc-release-mirror] because **Bintray** is closing on 2021-05-01 (inherited from the base image)
