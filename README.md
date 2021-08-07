@@ -66,7 +66,6 @@ The image is regularly maintained and rebuilt. The history of notable changes is
   - `latest` based on `accetto/ubuntu-vnc-xfce:latest` and the Firefox multiprocess is **enabled** (see below)
 
     ![badge-VERSION_STICKER_LATEST][badge-VERSION_STICKER_LATEST]
-    ![badge-github-commit-latest][badge-github-commit-latest]
 
 ### Ports
 
@@ -351,6 +350,4 @@ Credit goes to all the countless people and companies who contribute to open sou
 
 <!-- latest tag badges -->
 
-[badge-VERSION_STICKER_LATEST]: https://badgen.net/badge/version%20sticker/ubuntu18.04.5-firefox90.0/blue
-
-[badge-github-commit-latest]: https://images.microbadger.com/badges/commit/accetto/ubuntu-vnc-xfce-firefox-default.svg
+[badge-VERSION_STICKER_LATEST]: https://badgen.net/badge/version%20sticker/ubuntu18.04.5-firefox90.0.2/blue

@@ -8,6 +8,17 @@
 
 ***
 
+### Release 21.08
+
+- Docker Hub has removed auto-builds from free plans since 2021-07-26, therefore
+  - **if you stay on the free plan**, then
+    - you can still build the images locally and then push them to Docker Hub
+      - pushing to Docker Hub is optional
+      - just follow the added file `local-building-example.md`
+      - you can use the helper utility `builder.sh`
+  - regularity of updates of images on Docker Hub cannot be guaranteed any more
+- Firefox **90.0.2**
+
 ### Release 21.07.1
 
 - Firefox **90.0**
