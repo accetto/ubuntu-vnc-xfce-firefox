@@ -8,6 +8,10 @@
 
 ***
 
+### Release 21.09
+
+- Firefox **91.0.2**
+
 ### Release 21.08.1
 
 - utility `builder.sh` improved
