@@ -8,6 +8,11 @@
 
 ***
 
+### Release 21.10
+
+- base image has been updated to version **18.04.6**
+- Firefox **93.0**
+
 ### Release 21.09.1
 
 - utility `builder.sh` improved
