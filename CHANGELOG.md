@@ -8,6 +8,10 @@
 
 ***
 
+### Release 21.11
+
+- Firefox **94.0**
+
 ### Release 21.10
 
 - base image has been updated to version **18.04.6**
