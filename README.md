@@ -6,6 +6,10 @@
 
 ***
 
+**Attention!** The repository is **retired** and **archived**. It will not be developed any further and the related images on Docker Hub will not be rebuilt any more. They will phase out and they will be deleted after becoming too old. Please use the newer **third generation** (G3) repository [accetto/ubuntu-vnc-xfce-g3][accetto-ubuntu-vnc-xfce-g3] and the related images on Docker Hub instead. If you still need images based on `Ubuntu 18.04 LTS`, then feel free using the repository for building the images locally.
+
+***
+
 ![badge-docker-pulls][badge-docker-pulls]
 ![badge-docker-stars][badge-docker-stars]
 ![badge-github-release][badge-github-release]
@@ -284,6 +288,8 @@ Credit goes to all the countless people and companies who contribute to open sou
 [accetto-docker-xubuntu-vnc-firefox:default]:https://hub.docker.com/r/accetto/xubuntu-vnc-firefox/
 [accetto-xubuntu-vnc-wiki-image-hierarchy]: https://github.com/accetto/xubuntu-vnc/wiki/Image-hierarchy
 
+[accetto-ubuntu-vnc-xfce-g3]: https://github.com/accetto/ubuntu-vnc-xfce-g3
+
 [accetto-docker-ubuntu-vnc-xfce-g3]: https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-g3
 [accetto-docker-ubuntu-vnc-xfce-chromium-g3]: https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-chromium-g3
 [accetto-docker-ubuntu-vnc-xfce-firefox-g3]: https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-firefox-g3
@@ -350,4 +356,4 @@ Credit goes to all the countless people and companies who contribute to open sou
 
 <!-- latest tag badges -->
 
-[badge-VERSION_STICKER_LATEST]: https://badgen.net/badge/version%20sticker/ubuntu18.04.6-firefox97.0.2/blue
+[badge-VERSION_STICKER_LATEST]: https://badgen.net/badge/version%20sticker/ubuntu18.04.6-firefox98.0/blue
