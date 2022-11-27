@@ -6,6 +6,8 @@
 
 ***
 
+**Remark** The repository has been revived and merged into the repository [ubuntu-vnc-xfce][accetto-github-ubuntu-vnc-xfce], because I've noticed, that the images are still being pulled. This original repository [ubuntu-vnc-xfce-firefox][this-github] stays retired.
+
 **Attention!** The repository is **retired** and **archived**. It will not be developed any further and the related images on Docker Hub will not be rebuilt any more. They will phase out and they will be deleted after becoming too old. Please use the newer **third generation** (G3) repository [accetto/ubuntu-vnc-xfce-g3][accetto-ubuntu-vnc-xfce-g3] and the related images on Docker Hub instead. If you still need images based on `Ubuntu 18.04 LTS`, then feel free using the repository for building the images locally.
 
 ***

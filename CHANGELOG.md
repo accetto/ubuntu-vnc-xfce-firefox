@@ -8,7 +8,13 @@
 
 ***
 
-### Final release 22.03.1
+### Final release 22.11
+
+The repository has been revived and merged into the repository [ubuntu-vnc-xfce][accetto-github-ubuntu-vnc-xfce], because I've noticed, that the images are still being pulled.
+
+This original repository [ubuntu-vnc-xfce-firefox][this-github] stays retired.
+
+### Final G1v1 release 22.03.1
 
 The repository is **retired** and **archived**. It will not be developed any further and the related images on Docker Hub will not be rebuilt any more. They will phase out and they will be deleted after becoming too old.
 
